@@ -1,27 +1,27 @@
 package chipmunk.java;
 
 public class Vec2 {
-	private float vertices[];
+	private float coordinates[];
 	
     public Vec2( float x, float y){
-    	vertices = new float[2];
-    	vertices[0] = x;
-    	vertices[1] = y;
+    	coordinates = new float[2];
+    	coordinates[0] = x;
+    	coordinates[1] = y;
     }
     
     public float getX(){
-    	return vertices[0];
+    	return coordinates[0];
     }
     
     public float getY(){
-    	return vertices[1];
+    	return coordinates[1];
     }    
     
     public void setX( float val){
-    	vertices[0] = val;
+    	coordinates[0] = val;
     }
     
     public void setY(float val){
-    	vertices[1] = val;
+    	coordinates[1] = val;
     }      
 }
