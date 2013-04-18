@@ -5,6 +5,16 @@ public class Body {
 	private float inertia;
 	private Vec2 p;
 	private Vec2 v;
+	private float a;
+	
+	public float getA() {
+		return a;
+	}
+
+	public void setA(float a) {
+		this.a = a;
+	}
+
 	public float dt;
 	
 	public Vec2 getV() {

@@ -33,4 +33,9 @@ public class Vec2 {
     	coordinates[i] = val;
     }
     
+    public void set( float[] array ){
+    	coordinates[0] = array[0];
+    	coordinates[1] = array[1];    	
+    }
+    
 }
