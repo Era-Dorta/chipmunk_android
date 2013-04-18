@@ -23,5 +23,14 @@ public class Vec2 {
     
     public void setY(float val){
     	coordinates[1] = val;
-    }      
+    }     
+
+    public float get( int i){
+    	return coordinates[i];
+    }    
+    
+    public void set( int i, float val ){
+    	coordinates[i] = val;
+    }
+    
 }

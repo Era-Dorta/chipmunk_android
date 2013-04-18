@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Space {
 	private ArrayList<Body> body_list = new ArrayList<Body>();
 	private ArrayList<Shape> shape_list = new ArrayList<Shape>();
+	private ArrayList<Runnable> function_list = new ArrayList<Runnable>();
 	
     public Space(){
     	body_list.ensureCapacity(25); 
@@ -38,6 +39,7 @@ public class Space {
 				if(shape0 != shape1){
 					if(shape0.collides( shape1 )){
 						//Call user defined method
+						function_list.get(0).run();
 					}
 				}
 			}
@@ -49,5 +51,9 @@ public class Space {
 			body.step(dt);
 		}	
 	
+    }
+    
+    public void add_collision_func( int type0, int type1, Runnable function){
+    	function_list.add(function);
     }
 }
