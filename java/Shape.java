@@ -17,9 +17,23 @@ public abstract class Shape {
 	public Body getBody(){
 		return body;
 	}
+
+	public abstract boolean collides(Poly poly);
 	
-	public boolean collides(Shape otherShape) {
-		return false;
+	public abstract boolean collides(Segment segment);
+
+	public abstract boolean collides(Circle circle);
+	
+	public boolean collides(Shape shape){
+		if(shape instanceof Poly ){
+			return this.collides((Poly)shape);
+		}else if(shape instanceof Segment){
+			return this.collides((Segment)shape);
+		}else if(shape instanceof Circle){
+			return this.collides((Circle)shape);
+		}else{
+			return false;
+		}
 	}
 
 }

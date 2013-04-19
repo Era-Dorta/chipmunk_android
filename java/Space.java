@@ -10,7 +10,7 @@ public class Space {
 	//List of all shapes in space
 	private ArrayList<Shape> shape_list = new ArrayList<Shape>();
 	//List of all methods to be called when two objects collied
-	private ArrayList<Runnable> function_list = new ArrayList<Runnable>();
+	private ArrayList<ChipmunkRunnable> function_list = new ArrayList<ChipmunkRunnable>();
 	//Hash of shapes, each entry is: key -> collision_type, val -> list of all shapes with that collision type
 	private Map<Object, ArrayList<Shape> > objects_by_collision_type = new HashMap<Object, ArrayList<Shape>>();
 	//List of pairs of collision_types we must check
@@ -55,8 +55,8 @@ public class Space {
     		//Get a shape of each type and check collision
     		for( Shape shape0: objects_by_collision_type.get(collision_pair[0])){
     			for( Shape shape1: objects_by_collision_type.get(collision_pair[1])){
-	    			if(shape0.collides( shape1 )){
-	    				function_list.get(i).run();
+	    			if(shape0 != shape1 && shape0.collides( shape1 )){
+	    				function_list.get(i).run(shape0, shape1);
 	    			}
     			}
     		}
@@ -70,17 +70,30 @@ public class Space {
 	
     }
     
-    public class EmptyRunnable implements Runnable {
-    	  public void run() {
-    	  }
-    	}
+    public class EmptyRunnable implements ChipmunkRunnable {
+		public void run(Shape shape0, Shape shape1) {
+		// No implementation necessary
+		}
+
+		@Override
+		public void run() {
+			// No implementation necessary			
+		}
+    }
     
     private void add_collision_func_internal(Object type0, Object type1){
     	collisions_to_do.add( new Object[] {type0, type1});
-    	ArrayList<Shape> list = new ArrayList<Shape>();
-		objects_by_collision_type.put(type0, list);
-		list = new ArrayList<Shape>();
-		objects_by_collision_type.put(type1, list);    	
+    	
+    	ArrayList<Shape> list = objects_by_collision_type.get(type0);
+    	if(list == null){
+    		list = new ArrayList<Shape>();
+    		objects_by_collision_type.put(type0, list);
+    	}    	
+    	list = objects_by_collision_type.get(type1);
+    	if(list == null){
+    		list = new ArrayList<Shape>();
+    		objects_by_collision_type.put(type1, list);
+    	}  	
     }
     
     public void add_collision_func( Object type0, Object type1){
@@ -88,7 +101,7 @@ public class Space {
     	add_collision_func_internal(type0, type1);
     }    
     
-    public void add_collision_func( Object type0, Object type1, Runnable function){
+    public void add_collision_func( Object type0, Object type1, ChipmunkRunnable function){
     	function_list.add(function);
     	add_collision_func_internal(type0, type1);
     }
