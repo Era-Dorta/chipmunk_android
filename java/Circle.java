@@ -1,11 +1,9 @@
 package chipmunk.java;
 
 public class Circle extends Shape {
-	private float r;
-	public Circle(Body body_, float r_, Vec2 p) {
+	public Circle(Body body_, float r, Vec2 offset) {
 		super(1);
-		r = r_;
-		vertices[0] = p;
+		vertices[0] = new Vec2(r,r);	
 		body = body_;
 	}
 	

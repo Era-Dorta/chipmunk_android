@@ -41,5 +41,5 @@ public class Vec2 {
     	coordinates[0] = array[0];
     	coordinates[1] = array[1];    	
     }
-    
+        
 }
