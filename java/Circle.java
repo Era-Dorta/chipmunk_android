@@ -3,10 +3,9 @@ package chipmunk.java;
 public class Circle extends Shape {
 	private float r;
 	public Circle(Body body_, float r_, Vec2 p) {
-		vertices = new Vec2[1];
+		super(1);
 		r = r_;
 		vertices[0] = p;
-		currentPosition = new Vec2[vertices.length];
 		body = body_;
 	}
 	

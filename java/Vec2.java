@@ -3,6 +3,10 @@ package chipmunk.java;
 public class Vec2 {
 	private float coordinates[];
 	
+	public Vec2(){ 
+		coordinates = new float[2];
+	}
+	
     public Vec2( float x, float y){
     	coordinates = new float[2];
     	coordinates[0] = x;

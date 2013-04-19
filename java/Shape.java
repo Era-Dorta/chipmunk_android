@@ -6,6 +6,14 @@ public abstract class Shape {
 	protected Body body;
 	protected Object collisionType;
 	
+	public Shape( int size ){
+		vertices = new Vec2[size];
+		currentPosition = new Vec2[size];
+		for(int i = 0; i < size; i++ ){
+			currentPosition[i] = new Vec2();
+		}
+	}
+	
 	public Object getCollisionType(){
 		return collisionType;
 	}
