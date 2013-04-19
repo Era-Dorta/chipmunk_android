@@ -6,7 +6,16 @@ public class Body {
 	private Vec2 p;
 	private Vec2 v;
 	private float a;
+	private float t;
 	
+	public float getT() {
+		return t;
+	}
+
+	public void setT(float t) {
+		this.t = t;
+	}
+
 	public float getA() {
 		return a;
 	}
@@ -42,6 +51,14 @@ public class Body {
     public void step(float dt){
     	p.setX(p.getX() + v.getX()*dt);
     	p.setY(p.getY() + v.getY()*dt); 	
+    }
+    
+    public void applyForce( Vec2 f, Vec2 r ){
+    	
+    }
+    
+    public void resetForces(){
+    	
     }
     
 
