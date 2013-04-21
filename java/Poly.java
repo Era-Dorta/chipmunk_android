@@ -17,10 +17,10 @@ public class Poly extends Shape {
 		currentPosition[0].setY(body.getP().getY() - vertices[1].getY());				
 		currentPosition[1].setX(body.getP().getX() + vertices[3].getX());
 		currentPosition[1].setY(body.getP().getY() - vertices[3].getY());	
-		segmentPosition[0].setX(segment.body.getP().getX() - segment.vertices[0].getX());
-		segmentPosition[0].setY(segment.body.getP().getY() - segment.vertices[0].getY());				
+		segmentPosition[0].setX(segment.body.getP().getX()); 
+		segmentPosition[0].setY(segment.body.getP().getY() + segment.vertices[0].getY()); 			
 		segmentPosition[1].setX(segment.body.getP().getX() + segment.vertices[0].getX());
-		segmentPosition[1].setY(segment.body.getP().getY() + segment.vertices[0].getY());	
+		segmentPosition[1].setY(segment.body.getP().getY());		
         if(currentPosition[0].getX() < segmentPosition[1].getX() && segmentPosition[0].getX() < currentPosition[1].getX() &&
         		currentPosition[0].getY() < segmentPosition[0].getY() && segmentPosition[1].getY() < currentPosition[1].getY()){
         	return true;
