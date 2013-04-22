@@ -16,7 +16,7 @@ source "http://rubygems.org"
 gem 'chipmunk_android'
 ```
 
-Check gosu_android [examples](https://github.com/neochuky/gosu-android/tree/master/examples) to see how it works.
+Check gosu_android [this](https://github.com/neochuky/gosu-android/blob/trunk/examples/arkanoid_activity.rb) example to see how it works.
 
 Implemented code
 -------------------
