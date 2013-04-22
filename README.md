@@ -37,4 +37,4 @@ Implemented code
     * step method.
 * Vec2
     * Constructor
-    * Access methods, since it is in hava use v.set(i) instead of v[i] for array access.
+    * Access methods, since it is in java use v.set(i) instead of v[i] for array access.
