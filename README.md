@@ -16,7 +16,7 @@ source "http://rubygems.org"
 gem 'chipmunk_android'
 ```
 
-Check gosu_android [examples](https://github.com/neochuky/gosu-android/tree/master/examples) to see how it works.
+Check gosu_android [this](https://github.com/neochuky/gosu-android/blob/trunk/examples/arkanoid_activity.rb) example to see how it works.
 
 Implemented code
 -------------------
@@ -37,4 +37,4 @@ Implemented code
     * step method.
 * Vec2
     * Constructor
-    * Access methods, since it is in hava use v.set(i) instead of v[i] for array access.
+    * Access methods, since it is in java use v.set(i) instead of v[i] for array access.
